@@ -21,8 +21,8 @@ public class MandarinSpeaker implements LanguageSpeaker {
 	public MandarinSpeaker(){
 		try {
 			pronunciationParser = new 
-					PronunciationParser(FileUtils.BASE_DIR + "zh.json");
-			audioFileParser = new AudioFileParser(FileUtils.BASE_DIR + "zh_wav" + File.separator, ".wav");
+					PronunciationParser(FileUtils.RESOURCE_BASE +  "zh.json");
+			audioFileParser = new AudioFileParser(FileUtils.RESOURCE_BASE + "zh_mp3" + File.separator, ".mp3");
 			player = new CommonAudioFilePlayer();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -32,7 +32,6 @@ public class MandarinSpeaker implements LanguageSpeaker {
 	
 
 	public void speak(String text) {
-		// TODO Auto-generated method stub
 	    char[] chars = LineParser.parse(text);
 		for(char ch: chars){
 			speakAWord(String.valueOf(ch));
@@ -41,13 +40,13 @@ public class MandarinSpeaker implements LanguageSpeaker {
 	
 	private void speakAWord(String word){
 		String pronunciation = pronunciationParser.getPronnuciation(word);
-		String audioFile = audioFileParser.getOggFile(pronunciation);
+		String audioFile = audioFileParser.getAudioFile(pronunciation);
 		player.play(audioFile);
 	}
 	
 	public static void main(String[] args) {
 		MandarinSpeaker speaker = new MandarinSpeaker();
-		speaker.speak("张小宝你在干什么哈哈哈");
+		speaker.speak("中华人民共和国" );
 
 	}
 

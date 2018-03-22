@@ -11,7 +11,7 @@ public class AudioFileParser {
 
 	private HashMap<String, String> wordPronuceMap = new HashMap<String, String>();
 	
-	private static final String mapFile = FileUtils.BASE_DIR + "zh_list";
+	private static final String mapFile = FileUtils.RESOURCE_BASE + "zh_list";
 	
 	
 	private String audioFileFolder;
@@ -56,7 +56,7 @@ public class AudioFileParser {
 	 * @param pronunciation
 	 * @return
 	 */
-	public String getOggFile(String pronunciation){
+	public String getAudioFile(String pronunciation){
 		return audioFileFolder + pronunciation + audioFileSuffix;
 	}
 

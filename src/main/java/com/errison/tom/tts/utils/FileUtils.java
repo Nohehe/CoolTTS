@@ -7,8 +7,8 @@ import java.io.FileReader;
 
 public class FileUtils {
 	
-	public static final String BASE_DIR = System.getProperty("user.dir") + File.separator
-			+ "data" + File.separator;
+	public static final String RESOURCE_BASE = System.getProperty("user.dir") + File.separator + "src" + File.separator
+			+ "main" + File.separator + "resources" + File.separator +  "audio_data" + File.separator;
 	
 	/**
 	 * 读取整个文件 
