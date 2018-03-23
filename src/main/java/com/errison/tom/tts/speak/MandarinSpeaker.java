@@ -51,6 +51,7 @@ public class MandarinSpeaker implements LanguageSpeaker {
 		MandarinSpeaker speaker = new MandarinSpeaker();
 		speaker.speak("歌未竟东方白" );
 
+
 	}
 
 }
