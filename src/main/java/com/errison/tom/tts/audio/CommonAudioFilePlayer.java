@@ -18,6 +18,10 @@ public class CommonAudioFilePlayer implements AudioFilePlayer {
 		}
 	}
 
+    /**
+     * play audio file ,just skip unknown pronunciation
+     * @param filePath
+     */
 	public synchronized void play(String filePath) {
         try {
             BufferedInputStream buffer = new BufferedInputStream(new FileInputStream(filePath));

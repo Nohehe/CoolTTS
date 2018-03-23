@@ -10,6 +10,10 @@ import com.errison.tom.tts.parse.AudioFileParser;
 import com.errison.tom.tts.parse.PronunciationParser;
 import com.errison.tom.tts.utils.FileUtils;
 
+
+/**
+ * Mandarin tts
+ */
 public class MandarinSpeaker implements LanguageSpeaker {
 	
 	private PronunciationParser pronunciationParser;
@@ -29,7 +33,6 @@ public class MandarinSpeaker implements LanguageSpeaker {
 		}
 		
 	}
-	
 
 	public void speak(String text) {
 	    char[] chars = LineParser.parse(text);
@@ -39,14 +42,14 @@ public class MandarinSpeaker implements LanguageSpeaker {
 	}
 	
 	private void speakAWord(String word){
-		String pronunciation = pronunciationParser.getPronnuciation(word);
+		String pronunciation = pronunciationParser.getPronunciation(word);
 		String audioFile = audioFileParser.getAudioFile(pronunciation);
 		player.play(audioFile);
 	}
 	
 	public static void main(String[] args) {
 		MandarinSpeaker speaker = new MandarinSpeaker();
-		speaker.speak("中华人民共和国" );
+		speaker.speak("歌未竟东方白" );
 
 	}
 

@@ -1,8 +1,14 @@
 package com.errison.tom.tts.speak;
 
 public interface LanguageSpeaker {
-	
-	public void speak(String text);
+
+
+	/**
+	 * read text
+	 *
+	 * @param text
+	 */
+	void speak(String text);
 	
 
 }

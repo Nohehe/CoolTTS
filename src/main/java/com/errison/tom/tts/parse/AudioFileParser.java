@@ -13,7 +13,6 @@ public class AudioFileParser {
 	
 	private static final String mapFile = FileUtils.RESOURCE_BASE + "zh_list";
 	
-	
 	private String audioFileFolder;
 	private String audioFileSuffix;
 

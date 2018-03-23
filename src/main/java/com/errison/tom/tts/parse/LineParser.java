@@ -16,7 +16,6 @@ public class LineParser {
 		}
 		return text.toCharArray();
 	}
-	
-	
+
 
 }

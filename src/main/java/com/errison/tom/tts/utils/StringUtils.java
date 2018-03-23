@@ -27,8 +27,14 @@ public class StringUtils {
 	public static boolean invalidStr(String string){
 		return string == null || string.isEmpty();
 	}
-	
-	public static String formatOggFileName(String src){
+
+	/**
+	 *
+	 *
+	 * @param src
+	 * @return
+	 */
+	public static String formatAudioFileName(String src){
 		if (!invalidStr(src)) {
 			src = src.substring(2, src.length() - 2);
 		}
