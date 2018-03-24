@@ -1,6 +1,9 @@
-<<<<<<< HEAD
-# CoolTTS
-A Java tts for kinds of language
-=======
-# CoolTTS
->>>>>>> 3b86b90f9c180d2e5601fd00ca9290ac421e908f
+CoolTTS
+
+java version  text to speech 
+
+Edit from http://www.eguidedog.net/zhspeak.php 
+
+Thanks for Dr Colin Kong
+
+under GNU General Public License
