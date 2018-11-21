@@ -10,8 +10,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="CoolTTS" target="1.5" />
-      <module name="cooltts" target="1.5" />
+      <module name="cooltts" target="1.9" />
     </bytecodeTargetLevel>
   </component>
 </project>

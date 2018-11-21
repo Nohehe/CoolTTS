@@ -15,5 +15,6 @@
     <orderEntry type="library" name="Maven: javazoom:jlayer:1.0.1" level="project" />
     <orderEntry type="library" name="Maven: commons-io:commons-io:2.5" level="project" />
     <orderEntry type="library" name="Maven: com.alibaba:fastjson:1.2.34" level="project" />
+    <orderEntry type="library" name="Maven: com.hankcs:hanlp:portable-1.7.0" level="project" />
   </component>
 </module>

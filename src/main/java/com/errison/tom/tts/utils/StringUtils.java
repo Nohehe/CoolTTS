@@ -1,5 +1,9 @@
 package com.errison.tom.tts.utils;
 
+/**
+ * 字符工具类
+ *
+ */
 public class StringUtils {
 	
 	
@@ -28,17 +32,6 @@ public class StringUtils {
 		return string == null || string.isEmpty();
 	}
 
-	/**
-	 *
-	 *
-	 * @param src
-	 * @return
-	 */
-	public static String formatAudioFileName(String src){
-		if (!invalidStr(src)) {
-			src = src.substring(2, src.length() - 2);
-		}
-		return src;
-	}
+
 
 }

@@ -2,54 +2,53 @@ package com.errison.tom.tts.speak;
 
 
 import java.io.File;
+import java.util.List;
 
 import com.errison.tom.tts.audio.AudioFilePlayer;
-import com.errison.tom.tts.audio.CommonAudioFilePlayer;
-import com.errison.tom.tts.parse.LineParser;
-import com.errison.tom.tts.parse.AudioFileParser;
-import com.errison.tom.tts.parse.PronunciationParser;
-import com.errison.tom.tts.utils.FileUtils;
+import com.errison.tom.tts.audio.MP3FilePlayer;
+import com.errison.tom.tts.exception.ParseTextException;
+import com.errison.tom.tts.exception.PlayAudioException;
+import com.errison.tom.tts.parse.TextParser;
+import com.hankcs.hanlp.dictionary.py.Pinyin;
 
 
 /**
- * Mandarin tts
+ * 普通话转语音
+ *
  */
 public class MandarinSpeaker implements LanguageSpeaker {
-	
-	private PronunciationParser pronunciationParser;
-	
-	private AudioFileParser audioFileParser;
+
+
 	
 	private AudioFilePlayer player;
 	
 	public MandarinSpeaker(){
-		try {
-			pronunciationParser = new 
-					PronunciationParser(FileUtils.RESOURCE_BASE +  "zh.json");
-			audioFileParser = new AudioFileParser(FileUtils.RESOURCE_BASE + "zh_mp3" + File.separator, ".mp3");
-			player = new CommonAudioFilePlayer();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+
+		player = new MP3FilePlayer();
 		
 	}
 
 	public void speak(String text) {
-	    char[] chars = LineParser.parse(text);
-		for(char ch: chars){
-			speakAWord(String.valueOf(ch));
-		}
-	}
+	    try {
+            List<Pinyin> pinyinList = TextParser.parse(text);
+            for(Pinyin pinyin: pinyinList){
+                speakAWord(pinyin.toString());
+            }
+        } catch (ParseTextException pte) {
+            pte.printStackTrace();
+        }catch (PlayAudioException pae){
+	        pae.printStackTrace();
+        }
+
+    }
 	
-	private void speakAWord(String word){
-		String pronunciation = pronunciationParser.getPronunciation(word);
-		String audioFile = audioFileParser.getAudioFile(pronunciation);
-		player.play(audioFile);
+	private void speakAWord(String word) throws PlayAudioException {
+		player.play(word);
 	}
 	
 	public static void main(String[] args) {
 		MandarinSpeaker speaker = new MandarinSpeaker();
-		speaker.speak("歌未竟东方白" );
+		speaker.speak("歌未竟，东方白" );
 
 
 	}
